@@ -1,0 +1,9 @@
+{
+  "appId": "com.maari.catalog",
+  "appName": "مستودع المعري",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "backgroundColor": "#FFFAF8"
+  }
+}
