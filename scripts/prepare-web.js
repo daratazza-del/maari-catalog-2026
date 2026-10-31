@@ -13,11 +13,20 @@ const files = [
   "brand-cover.jpg"
 ];
 
-const output = path.join(__dirname, "..", "www");
+const root = path.join(__dirname, "..");
+const output = path.join(root, "www");
 
 fs.mkdirSync(output, { recursive: true });
 
 for (const file of files) {
-  if (fs.existsSync(file)) {
-    fs.copyFileSync(file, path.join(output, file));
+  const source = path.join(root, file);
+
+  if (fs.existsSync(source)) {
+    fs.copyFileSync(source, path.join(output, file));
     console.log("Copied:", file);
+  } else {
+    console.log("Not found:", file);
+  }
+}
+
+console.log("Website preparation completed.");
