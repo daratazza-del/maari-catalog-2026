@@ -1,0 +1,28 @@
+name: Extract catalog ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract archive
+        run: |
+          mkdir -p extracted_catalog
+          unzip -q Maari_Cosmetics_Companies_Final.zip -d extracted_catalog
+          find extracted_catalog -type f | sort
+
+      - name: Upload extracted files
+        uses: actions/upload-artifact@v4
+        with:
+          name: maari-cosmetics-extracted
+          path: extracted_catalog/
+          if-no-files-found: error
