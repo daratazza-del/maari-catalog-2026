@@ -1,4 +1,19 @@
-/* Al Maari cloud sync: persistent owner session + verified writes. */
+/* Load Maari visual design */
+(function(){
+  try {
+    const source = document.currentScript && document.currentScript.src;
+    const href = new URL('catalog-design.css', source || window.location.href).href;
+    if (!document.querySelector('link[data-maari-design]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.setAttribute('data-maari-design', 'true');
+      document.head.appendChild(link);
+    }
+  } catch (e) {
+    console.warn('Maari design could not be loaded', e);
+  }
+})();/* Al Maari cloud sync: persistent owner session + verified writes. */
 (function(){
   const cfg=window.MAARI_CLOUD_CONFIG||{};
   const configured=!!(cfg.url&&cfg.anonKey&&cfg.ownerUserId);
