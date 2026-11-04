@@ -1,103 +1,57 @@
-/* MAARI COSMETICS - Premium Catalog Design */
+/* =========================================
+   MAARI COSMETICS - PREMIUM DESIGN V2
+   ========================================= */
 
 :root {
   --maari-gold: #d6a84b;
+  --maari-gold-light: #f4dfaa;
   --maari-dark: #18232d;
   --maari-light: #fffaf2;
+  --maari-white: #ffffff;
+  --maari-shadow: 0 8px 25px rgba(55, 39, 15, .10);
+  --maari-radius: 22px;
+}
+
+/* الخلفية العامة */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(145deg, #fffaf2, #f4e9d8);
+  background:
+    radial-gradient(circle at top right, #fff0cf 0%, transparent 35%),
+    linear-gradient(145deg, #fffaf2, #f1e5d2) !important;
 }
 
 /* شبكة الشركات */
+
 .companies-grid,
 .company-grid,
 #companies {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  padding: 14px;
+  gap: 15px !important;
+  padding: 15px !important;
+  align-items: stretch;
 }
 
 /* بطاقات الشركات */
+
 .company-card {
-  border-radius: 22px !important;
+  position: relative;
   overflow: hidden;
-  background: white !important;
+  border-radius: var(--maari-radius) !important;
+  background: linear-gradient(145deg, #ffffff, #fff9ed) !important;
   border: 1px solid #ead8b5 !important;
-  box-shadow: 0 7px 22px #38240f18;
-  transition: transform .25s ease;
+  box-shadow: var(--maari-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .company-card:active {
   transform: scale(.96);
+  box-shadow: 0 3px 12px rgba(55, 39, 15, .15);
 }
 
-/* صور الشركات والمنتجات */
-.company-card img,
-.product-card img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* بطاقات المنتجات */
-.product-card {
-  border-radius: 20px !important;
-  background: #fff !important;
-  box-shadow: 0 5px 18px #00000012;
-  overflow: hidden;
-  padding: 10px;
-}
-
-/* الأزرار */
-button {
-  border-radius: 14px !important;
-  transition: .2s ease;
-}
-
-button:active {
-  transform: scale(.96);
-}
-
-/* شريط العروض */
-.maari-offer {
-  position: relative;
-  overflow: hidden;
-  padding: 15px;
-  margin: 12px;
-  border-radius: 18px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  background: linear-gradient(100deg, #a90055, #ed174c, #ff9d00);
-  background-size: 200% 200%;
-  animation: maariGlow 3s ease infinite;
-  box-shadow: 0 0 18px #ed174c55;
-}
-
-.maari-offer::after {
-  content: "✨ ⭐ ✨";
-  display: block;
-  margin-top: 5px;
-  animation: maariStars 1.5s infinite alternate;
-}
-
-@keyframes maariGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes maariStars {
-  from { transform: scale(.9); opacity: .7; }
-  to { transform: scale(1.12); opacity: 1; }
-}
-
-@media (min-width: 700px) {
-  .companies-grid,
-  .company-grid,
-  #companies {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
+.company-card img {
+  width
