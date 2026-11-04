@@ -54,4 +54,184 @@ body {
 }
 
 .company-card img {
-  width
+  width: 100%;
+  object-fit: cover;
+  border-radius: 17px;
+}
+
+/* صور المنتجات */
+
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform .3s ease;
+}
+
+/* بطاقات المنتجات */
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+  padding: 11px !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  border: 1px solid #f0e4d0 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .07);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.product-card:active {
+  transform: scale(.97);
+}
+
+/* العناوين والنصوص */
+
+h1, h2, h3 {
+  letter-spacing: .2px;
+}
+
+.company-card,
+.product-card {
+  color: var(--maari-dark);
+}
+
+/* الأزرار */
+
+button {
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+/* تحسين حقول الإدخال */
+
+input,
+select,
+textarea {
+  border-radius: 13px !important;
+  border: 1px solid #e6d4b2 !important;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--maari-gold) !important;
+  box-shadow: 0 0 0 3px rgba(214, 168, 75, .15);
+}
+
+/* شريط العروض */
+
+.maari-offer {
+  position: relative;
+  overflow: hidden;
+  padding: 17px;
+  margin: 13px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  background: linear-gradient(
+    110deg,
+    #870044,
+    #e81758,
+    #ff8c00,
+    #d6a000
+  );
+  background-size: 300% 300%;
+  animation: maariGlow 4s ease infinite;
+  box-shadow: 0 0 20px rgba(237, 23, 76, .35);
+}
+
+.maari-offer::after {
+  content: "✨ ⭐ 💥 ⭐ ✨";
+  display: block;
+  margin-top: 7px;
+  font-size: 19px;
+  animation: maariStars 1.2s infinite alternate;
+}
+
+/* لمعان شريط الإعلان */
+
+.maari-offer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+  background: rgba(255, 255, 255, .25);
+  transform: rotate(25deg);
+  animation: maariShine 3s infinite;
+}
+
+@keyframes maariGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes maariStars {
+  from {
+    transform: scale(.9);
+    opacity: .7;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes maariShine {
+  0% {
+    left: -80%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+/* الشاشات الكبيرة */
+
+@media (min-width: 700px) {
+  .companies-grid,
+  .company-grid,
+  #companies {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* الشاشات الصغيرة جداً */
+
+@media (max-width: 360px) {
+  .companies-grid,
+  .company-grid,
+  #companies {
+    gap: 10px !important;
+    padding: 10px !important;
+  }
+
+  .company-card,
+  .product-card {
+    border-radius: 16px !important;
+  }
+}
+
+/* تقليل الحركة لمن يفضل ذلك */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
