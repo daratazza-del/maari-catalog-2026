@@ -1,4 +1,4 @@
-const CACHE = 'maari-catalog-full-v7';
+const CACHE = 'maari-catalog-full-v8';
 
 const ASSETS = [
   './',
@@ -6,7 +6,8 @@ const ASSETS = [
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './logo.jpg'
+  './logo.jpg',
+  './catalog-design.css'
 ];
 
 self.addEventListener('install', event => {
